@@ -1,0 +1,29 @@
+.profile__content {
+	height: 50px;
+	border: 2px solid #FFFFFF;
+	box-sizing: border-box;
+	border-radius: 2px;
+  width: 150px;
+	background-image: url(../../../images/content.svg);
+	background-color: black;
+	background-repeat: no-repeat;
+	align-self: center;
+	background-position: center;
+}
+
+.profile__content:hover {
+	cursor: pointer;
+	opacity: 0.6;
+}
+
+@media  screen and (max-width:1023px){
+	.profile__content {
+		max-width: 581px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.profile__content {
+		width: 282px;
+	}
+}

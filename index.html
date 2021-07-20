@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="pages/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="4я проктная работа, Место.">
+  <meta name="keywords" content="HTML5, CSS">
+  <meta name="author" content="Егор Морарь">
+  <title>Mesto</title>
+</head>
+
+<body class="page">
+
+	<header class="header">
+		<a href="#" ><img src="./images/logo.svg" alt="Логотип" class="header__logo"></a>
+	</header>
+
+  <main class="main">
+
+    <section class="profile">
+      <div class="profile__container">
+        <img src="./images/profile.png" alt="Аватарка" class="profile__container-avatar">
+        <div class="profile__info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__button" aria-label="Редактор" type="button"></button>
+          <p class="profile__bio">Исследователь океана</p>
+        </div>
+      </div>
+      <button class="profile__content" aria-label="Контент" type="button"></button>
+    </section>
+
+    <section class="content">
+      <ul class="content__list">
+        <li class="content__info">
+          <img src="./images/everest.jpg" alt="Эверест" class="content__picture">
+          <div class="content__container">
+            <h2 class="content__name">Эверест</h2>
+            <button class="content__like" aria-label="Лайк" type="button"></button>
+          </div>
+        </li>
+        <li class="content__info">
+          <img src="./images/K2.jpg" alt="К2" class="content__picture">
+          <div class="content__container">
+            <h2 class="content__name">Чогори́</h2>
+            <button class="content__like" aria-label="Лайк" type="button"></button>
+          </div>
+        </li>
+        <li class="content__info">
+          <img src="./images/Kangchenjunga.jpg" alt="Эверест" class="content__picture">
+          <div class="content__container">
+            <h2 class="content__name">Канченджанга</h2>
+            <button class="content__like" aria-label="Лайк" type="button"></button>
+          </div>
+        </li>
+        <li class="content__info">
+          <img src="./images/Lhotse.jpg" alt="Эверест" class="content__picture">
+          <div class="content__container">
+            <h2 class="content__name">Лхоцзе</h2>
+            <button class="content__like" aria-label="Лайк" type="button"></button>
+          </div>
+        </li>
+        <li class="content__info">
+          <img src="./images/Makalu.jpg" alt="Эверест" class="content__picture">
+          <div class="content__container">
+            <h2 class="content__name">Макалу</h2>
+            <button class="content__like" aria-label="Лайк" type="button"></button>
+          </div>
+        </li>
+        <li class="content__info">
+          <img src="./images/Manaslu.jpg" alt="Эверест" class="content__picture">
+          <div class="content__container">
+            <h2 class="content__name">Манаслу</h2>
+            <button class="content__like" aria-label="Лайк" type="button"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__author">© 2021 Egor Morar</p>
+  </footer>
+  <div class="popup">
+      <div class="popup__container">
+      <form action="edit-profile" class="popup__form">
+        <button class="popup__close" type="button"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input type="text" name="text" class="popup__input popup__input_type_name" placeholder="Имя">
+        <input type="text" name="text" class="popup__input popup__input_type_about" placeholder="О себе">
+        <button class="popup__button-save" aria-label="Сохранить" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+<script src="/scripts/scripts.js"></script>
+</body>
+</html>

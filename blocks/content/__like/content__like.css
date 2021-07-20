@@ -1,0 +1,18 @@
+.content__like {
+	background-image: url(../../../images/like.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 22px;
+	height: 19px;
+	border: 0;
+}
+
+.content__like:hover {
+	cursor: pointer;
+	opacity: 0.6;
+}
+
+.content__like:active {
+	background-image: url(../../../images/active.jpg);
+	opacity: 1;
+}
