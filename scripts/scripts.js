@@ -1,7 +1,7 @@
 //Находим форму
 let page = document.querySelector('.page');
-let formElement = page.querySelector('.popup');
-
+let formElement = page.querySelector('.popup__form');
+let popup = page.querySelector('.popup');
 //Находим поля
 let profileButton = page.querySelector('.profile__button');
 let closeButton = page.querySelector('.popup__close');
@@ -13,7 +13,7 @@ let profileBio = page.querySelector('.profile__bio');
 
 //открытие popup->input
 function buttonOpen () {
-  formElement.classList.add('popup__opened');
+  popup.classList.add('popup_opened');
   nameInput.value = profileName.textContent;
   jobInput.value = profileBio.textContent;
 }
@@ -21,7 +21,7 @@ function buttonOpen () {
 
 //закрытие popup
 function buttonClose () {
-  formElement.classList.remove('popup__opened');
+  popup.classList.remove('popup_opened');
 }
 
 
