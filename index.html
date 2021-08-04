@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="pages/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="4я проктная работа, Место.">
+  <meta name="description" content="проктная работа, Место.">
   <meta name="keywords" content="HTML5, CSS">
   <meta name="author" content="Егор Морарь">
   <title>Место</title>
@@ -32,48 +32,6 @@
 
     <section class="content">
       <ul class="content__list">
-        <li class="content__info">
-          <img src="./images/everest.jpg" alt="Эверест" class="content__picture">
-          <div class="content__container">
-            <h2 class="content__name">Эверест</h2>
-            <button class="content__like" aria-label="Лайк" type="button"></button>
-          </div>
-        </li>
-        <li class="content__info">
-          <img src="./images/K2.jpg" alt="К2" class="content__picture">
-          <div class="content__container">
-            <h2 class="content__name">Чогори́</h2>
-            <button class="content__like" aria-label="Лайк" type="button"></button>
-          </div>
-        </li>
-        <li class="content__info">
-          <img src="./images/Kangchenjunga.jpg" alt="Эверест" class="content__picture">
-          <div class="content__container">
-            <h2 class="content__name">Канченджанга</h2>
-            <button class="content__like" aria-label="Лайк" type="button"></button>
-          </div>
-        </li>
-        <li class="content__info">
-          <img src="./images/Lhotse.jpg" alt="Эверест" class="content__picture">
-          <div class="content__container">
-            <h2 class="content__name">Лхоцзе</h2>
-            <button class="content__like" aria-label="Лайк" type="button"></button>
-          </div>
-        </li>
-        <li class="content__info">
-          <img src="./images/Makalu.jpg" alt="Эверест" class="content__picture">
-          <div class="content__container">
-            <h2 class="content__name">Макалу</h2>
-            <button class="content__like" aria-label="Лайк" type="button"></button>
-          </div>
-        </li>
-        <li class="content__info">
-          <img src="./images/Manaslu.jpg" alt="Эверест" class="content__picture">
-          <div class="content__container">
-            <h2 class="content__name">Манаслу</h2>
-            <button class="content__like" aria-label="Лайк" type="button"></button>
-          </div>
-        </li>
       </ul>
     </section>
   </main>
@@ -81,10 +39,20 @@
   <footer class="footer">
     <p class="footer__author">© 2021 Egor Morar</p>
   </footer>
-  <div class="popup">
+  <template id="content-template">
+    <li class="content__info">
+      <button class="content__remove" type="button" arial-label="удаление"></button>
+      <img src="#" class="content__picture">
+      <div class="content__container">
+        <h2 class="content__name"></h2>
+        <button class="content__like" aria-label="Лайк" type="button"></button>
+      </div>
+    </li>
+  </template>
+  <div class="popup popup__edit_profile">
       <div class="popup__container">
       <form name="edit-profile" class="popup__form">
-        <button class="popup__close" type="button"></button>
+        <button class="popup__close popup__close_type_edit_profile" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <input type="text" name="textname" class="popup__input popup__input_type_name" placeholder="Имя">
         <input type="text" name="textabout" class="popup__input popup__input_type_about" placeholder="О себе">
@@ -92,6 +60,24 @@
       </form>
     </div>
   </div>
-<script src="./scripts/scripts.js"></script>
+  <div class="popup popup__add_content">
+    <div class="popup__container">
+    <form name="add-content" class="popup__form">
+      <button class="popup__close popup__close_type_add_content" type="button"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <input type="text" name="textname" class="popup__input popup__input_type_place" placeholder="Название">
+      <input type="url" name="url" class="popup__input popup__input_type_picture" placeholder="Ссылка на картинку">
+      <button class="popup__button-save popup__bottun_add-content" aria-label="Создать" type="submit">Создать</button>
+    </form>
+    </div>
+  </div>
+  <div class="popup popup__open_picture">
+    <div class="popup__picture">
+      <button class="popup__close popup__close_open_picture" type="button"></button>
+      <img class="popup__image" src="#" alt="#">
+      <p class="popup__picture-description"></p>
+    </div>
+  </div>
+  <script src="./scripts/scripts.js"></script>
 </body>
 </html>

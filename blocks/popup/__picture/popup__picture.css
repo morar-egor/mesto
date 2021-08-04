@@ -1,0 +1,5 @@
+.popup__picture {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
