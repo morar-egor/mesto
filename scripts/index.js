@@ -73,7 +73,7 @@ openPicture = (content) => {
     viewingPicture.src = e.target.getAttribute('src');
     viewingPicture.alt = e.target.getAttribute('alt');
     pictureDescription.textContent = viewingPicture.alt;
-    buttonOpen(popupPicture);
+    openPopup(popupPicture);
   });
 };
 
@@ -92,58 +92,58 @@ initialCards.forEach((content) => {
 
 
 //редактирование имени и информации о себе
-formSubmitProfile = (e) => {
+editPopupProfile = (e) => {
   e.preventDefault();
   profileName.textContent = nameInput.value;
   profileBio.textContent = jobInput.value;
-  buttonClose(popupEditProfile);
+  closePopup(popupEditProfile);
 };
 
 //импут в popup профиля
-popupProfile = () => {
-  buttonOpen(popupEditProfile);
-  nameInput.value = profileName.textContent;
+inputIfPopupProfileOpen = () => {
   jobInput.value = profileBio.textContent;
+  nameInput.value = profileName.textContent;
+  openPopup(popupEditProfile);
 };
 
 
 //popup контент open
-popupContent = () => {
+inputIfPopupContentOpen = () => {
   placeInput.value = '';
   pictureInput.value = '';
-  buttonOpen(popupAddContent);
+  openPopup(popupAddContent);
 }
 
 
 //добавление контента в popup
-formContent = (e) => {
+addToFormContent = (e) => {
   e.preventDefault();
   const cardContent = createCard(placeInput.value, pictureInput.value);
   contentList.prepend(cardContent)
-  buttonClose(popupAddContent);
+  openPopup(popupAddContent);
 };
 
 //открытие popup
-buttonOpen = (popup) => {
+openPopup = (popup) => {
   popup.classList.add('popup_opened');
 };
 
 //закрытие popup
-buttonClose = (popup) => {
+closePopup = (popup) => {
   popup.classList.remove('popup_opened');
 };
 
 
-popupEditProfile.addEventListener('submit', formSubmitProfile);
-profileButton.addEventListener('click', popupProfile);
-popupAddContent.addEventListener('submit', formContent);
-contentButton.addEventListener('click', popupContent);
+popupEditProfile.addEventListener('submit', editPopupProfile);
+profileButton.addEventListener('click', inputIfPopupProfileOpen);
+popupAddContent.addEventListener('submit', addToFormContent);
+contentButton.addEventListener('click', inputIfPopupContentOpen);
 closeButtonProfile.addEventListener('click',() => {
-  buttonClose(popupEditProfile);
+  closePopup(popupEditProfile);
 });
 closeButtonContent.addEventListener('click',() => {
-  buttonClose(popupAddContent);
+  closePopup(popupAddContent);
 });
 closeButtonPicture.addEventListener('click',() => {
-  buttonClose(popupPicture);
+  closePopup(popupPicture);
 });
