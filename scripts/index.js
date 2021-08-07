@@ -120,7 +120,7 @@ addToFormContent = (e) => {
   e.preventDefault();
   const cardContent = createCard(placeInput.value, pictureInput.value);
   contentList.prepend(cardContent)
-  openPopup(popupAddContent);
+  closePopup(popupAddContent);
 };
 
 //открытие popup
