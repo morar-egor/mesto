@@ -49,21 +49,21 @@ const initialCards = [
 
 //создаем фурму карточки контента
 createCard = (name, link) => {
-  const cardContent = contentTemplate.content.querySelector('.content__info').cloneNode(true);
-  cardContent.querySelector('.content__name').textContent = name;
-  cardContent.querySelector('.content__picture').src = link;
-  cardContent.querySelector('.content__picture').alt = name;
-  removeCard(cardContent);
-  openPicture(cardContent);
-  likeCard(cardContent);
-  return cardContent;
+  const card = contentTemplate.content.querySelector('.content__info').cloneNode(true);
+  card.querySelector('.content__name').textContent = name;
+  card.querySelector('.content__picture').src = link;
+  card.querySelector('.content__picture').alt = name;
+  removeCard(card);
+  openPicture(card);
+  likeCard(card);
+  return card;
 };
 
 //удаление контента
 removeCard = (content) => {
   content.querySelector('.content__remove').addEventListener('click', (e) => {
     const cardItem = e.target.closest('.content__info');
-    cardItem.remove(cardContent);
+    cardItem.remove(card);
   });
 };
 
@@ -86,21 +86,21 @@ likeCard = (content) => {
 
 //дефолтный загрузчик контента
 initialCards.forEach((content) => {
-  cardContent = createCard(content.name, content.link);
-  contentList.append(cardContent);
+  card = createCard(content.name, content.link);
+  contentList.append(card);
 });
 
 
 //редактирование имени и информации о себе
-editPopupProfile = (e) => {
+handleProfileFormSubmit = (e) => {
   e.preventDefault();
   profileName.textContent = nameInput.value;
   profileBio.textContent = jobInput.value;
   closePopup(popupEditProfile);
 };
 
-//импут в popup профиля
-inputIfPopupProfileOpen = () => {
+//импут -> open popup profile
+openPopupEditProfile = () => {
   jobInput.value = profileBio.textContent;
   nameInput.value = profileName.textContent;
   openPopup(popupEditProfile);
@@ -108,7 +108,7 @@ inputIfPopupProfileOpen = () => {
 
 
 //popup контент open
-inputIfPopupContentOpen = () => {
+openPopupAddContent = () => {
   placeInput.value = '';
   pictureInput.value = '';
   openPopup(popupAddContent);
@@ -116,10 +116,10 @@ inputIfPopupContentOpen = () => {
 
 
 //добавление контента в popup
-addToFormContent = (e) => {
+handleContentFormSubmit = (e) => {
   e.preventDefault();
-  const cardContent = createCard(placeInput.value, pictureInput.value);
-  contentList.prepend(cardContent)
+  const card = createCard(placeInput.value, pictureInput.value);
+  contentList.prepend(card)
   closePopup(popupAddContent);
 };
 
@@ -134,10 +134,10 @@ closePopup = (popup) => {
 };
 
 
-popupEditProfile.addEventListener('submit', editPopupProfile);
-profileButton.addEventListener('click', inputIfPopupProfileOpen);
-popupAddContent.addEventListener('submit', addToFormContent);
-contentButton.addEventListener('click', inputIfPopupContentOpen);
+popupEditProfile.addEventListener('submit', handleProfileFormSubmit);
+profileButton.addEventListener('click', openPopupEditProfile);
+popupAddContent.addEventListener('submit',  handleContentFormSubmit);
+contentButton.addEventListener('click', openPopupAddContent);
 closeButtonProfile.addEventListener('click',() => {
   closePopup(popupEditProfile);
 });
