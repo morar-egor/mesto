@@ -23,11 +23,11 @@
         <img src="./images/profile.png" alt="Аватарка" class="profile__container-avatar">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__button" aria-label="Редактор" type="button"></button>
+          <button class="profile__button" aria-div="Редактор" type="button"></button>
           <p class="profile__bio">Исследователь океана</p>
         </div>
       </div>
-      <button class="profile__content" aria-label="Контент" type="button"></button>
+      <button class="profile__content" aria-div="Контент" type="button"></button>
     </section>
 
     <section class="content">
@@ -41,33 +41,49 @@
   </footer>
   <template id="content__template">
     <li class="content__info">
-      <button class="content__remove" type="button" arial-label="удаление"></button>
+      <button class="content__remove" type="button" arial-div="удаление"></button>
       <img src="#" class="content__picture">
       <div class="content__container">
         <h2 class="content__name"></h2>
-        <button class="content__like" aria-label="Лайк" type="button"></button>
+        <button class="content__like" aria-div="Лайк" type="button"></button>
       </div>
     </li>
   </template>
   <div class="popup popup_type_edit-profile">
     <div class="popup__container">
-      <form name="edit-profile" class="popup__form">
+      <form class="popup__form" name="edit-profile" novalidate>
         <button class="popup__close popup__close_type_edit-profile" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" name="textname" class="popup__input popup__input_type_name" placeholder="Имя">
-        <input type="text" name="textabout" class="popup__input popup__input_type_about" placeholder="О себе">
-        <button class="popup__button-save popup__button-save_type_edit-profile" aria-label="Сохранить" type="submit">Сохранить</button>
+        <fieldset class="popup__set">
+        <div class="popup__field">
+          <input id="name-input" type="text" name="text" class="popup__input popup__input_type_name" placeholder="Имя" required minlength="2" maxlength="40">
+          <span class="popup__input-error name-input-error"></span>
+        </div>
+        <div class="popup__field">
+          <input class="popup__input popup__input_type_about" type="text" name="description" id="discription-input" placeholder="О себе" required  minlength="2" maxlength="200">
+          <span class="popup__input-error discription-input-error"></span>
+        </div>
+        <button class="popup__button-save popup__button-save_type_edit-profile" aria-div="Сохранить" type="submit">Сохранить</button>
+        </fieldset>
       </form>
     </div>
   </div>
   <div class="popup popup_type_add-content">
     <div class="popup__container">
-    <form name="add-content" class="popup__form">
+    <form class="popup__form" name="add-content" novalidate>
       <button class="popup__close popup__close_type_add-content" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <input type="text" name="textname" class="popup__input popup__input_type_place" placeholder="Название">
-      <input type="url" name="url" class="popup__input popup__input_type_picture" placeholder="Ссылка на картинку">
-      <button class="popup__button-save popup__button-save_type_add-content" aria-label="Создать" type="submit">Создать</button>
+      <fieldset class="popup__set">
+        <div class="popup__field">
+          <input id="place-input" type="text" name="text" class="popup__input popup__input_type_place" placeholder="Название" required minlength="2" maxlength="30">
+          <span class="popup__input-error place-input-error"></span>
+        </div>
+        <div class="popup__field">
+          <input id="url-input" type="url" name="url" class="popup__input popup__input_type_picture" placeholder="Ссылка на картинку" required>
+          <span class="popup__input-error url-input-error"></span>
+        </div>
+        <button class="popup__button-save popup__button-save_type_add-content" aria-div="Создать" type="submit">Создать</button>
+      </fieldset>
     </form>
     </div>
   </div>
@@ -77,7 +93,8 @@
       <img class="popup__image" src="#" alt="#">
       <p class="popup__picture-description"></p>
     </div>
-  </div>
+  </div><!--  -->
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 </html>
