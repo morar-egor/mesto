@@ -34,12 +34,14 @@
       <ul class="content__list">
       </ul>
     </section>
+
   </main>
 
   <footer class="footer">
     <p class="footer__author">© 2021 Egor Morar</p>
   </footer>
-  <template id="content__template">
+
+  <template class="content__template" id="content__template">
     <li class="content__info">
       <button class="content__remove" type="button" arial-div="удаление"></button>
       <img src="#" class="content__picture">
@@ -49,6 +51,7 @@
       </div>
     </li>
   </template>
+
   <div class="popup popup_type_edit-profile">
     <div class="popup__container">
       <form class="popup__form" name="edit-profile" novalidate>
@@ -93,8 +96,7 @@
       <img class="popup__image" src="#" alt="#">
       <p class="popup__picture-description"></p>
     </div>
-  </div><!--  -->
-  <script src="./scripts/index.js"></script>
-  <script src="./scripts/validate.js"></script>
+  </div>
+  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
