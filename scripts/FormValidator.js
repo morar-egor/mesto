@@ -1,12 +1,12 @@
 export default class FormValidator {
   constructor(object, formElement) {
     this._formElement = formElement;
-    this._inputElement = object.inputElement;
+    this._inputSelector = object.inputSelector;
     this._submitButtonSelector = object.submitButtonSelector;
     this._inactiveButtonClass = object.inactiveButtonClass;
     this._inputErrorClass = object.inputErrorClass;
     this._errorClassActive = object.errorClassActive;
-    this._inputList = Array.from(this._formElement.querySelectorAll(this._inputElement));
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     this._submitButtonContent = this._formElement.querySelector(this._submitButtonSelector);
   }
 
@@ -66,7 +66,7 @@ export default class FormValidator {
     }
   };
 
-  resetPopupForm = () => {
+  resetForm = () => {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });

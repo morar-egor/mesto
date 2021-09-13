@@ -63,7 +63,7 @@ const handleProfileFormSubmit = (e) => {
 const openPopupEditProfile = () => {
   jobInput.value = profileBio.textContent;
   nameInput.value = profileName.textContent;
-  formValidatorEditProfile.resetPopupForm();
+  formValidatorEditProfile.resetForm();
   openPopup(popupEditProfile);
 };
 
@@ -71,24 +71,24 @@ const openPopupEditProfile = () => {
 const openPopupAddContent = () => {
   placeInput.value = '';
   pictureInput.value = '';
-  formValidatorAddContent.resetPopupForm();
+  formValidatorAddContent.resetForm();
   openPopup(popupAddContent);
 }
 
 //открытие popup
 export default function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', onKeyDown);
+  document.addEventListener('keydown', keyHanlker);
 };
 
 //закрытие popup
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', onKeyDown);
+  document.removeEventListener('keydown', keyHanlker);
 };
 
 //закрытие popup ecs
-const onKeyDown = (e) => {
+const keyHanlker = (e) => {
   if (e.key === "Escape") {
     const openedPopup = document.querySelector('.popup_opened')
     closePopup(openedPopup)
@@ -97,7 +97,7 @@ const onKeyDown = (e) => {
 
 //закрытие popup overlay
 const closeOverlay = (popup) =>{
-  if (popup.target.classList.contains('popup')) {
+  if (popup.target.classList.contains('popup_opened')) {
     closePopup(popup.target);
   };
 };

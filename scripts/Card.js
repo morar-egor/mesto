@@ -25,12 +25,12 @@ export default class Card {
     return this._content;
   }
 
-  _buttonLikeCard = () => {
+  _likeCard = () => {
     this._likeCard.classList.toggle('content__like_active');
   }
 
-  _removeCard = (e) => {
-    e.target.closest('.content__info').remove();
+  _removeCard = () => {
+    this._content.remove();
   }
 
   _openPicture = () => {
@@ -44,7 +44,7 @@ export default class Card {
 
   _setEventListeners() {
     this._likeCard.addEventListener('click', () => {
-      this._buttonLikeCard();
+      this._likeCard();
     });
 
     this._content.querySelector('.content__remove').addEventListener('click', this._removeCard);
