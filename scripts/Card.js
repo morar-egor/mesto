@@ -20,13 +20,13 @@ export default class Card {
     this._content.querySelector('.content__picture').alt = this._name;
     this._content.querySelector('.content__picture').src = this._link;
     this._content.querySelector('.content__name').textContent = this._name;
-    this._likeCard = this._content.querySelector('.content__like');
+    this._likeButton = this._content.querySelector('.content__like');
     this._setEventListeners();
     return this._content;
   }
 
-  _likeCard = () => {
-    this._likeCard.classList.toggle('content__like_active');
+  _likeButton = () => {
+    this._likeButton.classList.toggle('content__like_active');
   }
 
   _removeCard = () => {
@@ -43,8 +43,8 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._likeCard.addEventListener('click', () => {
-      this._likeCard();
+    this._likeButton.addEventListener('click', () => {
+      this._likeButton();
     });
 
     this._content.querySelector('.content__remove').addEventListener('click', this._removeCard);

@@ -22,7 +22,7 @@ const popupPicture = document.querySelector('.popup_type_picture');
 
 const object = {
   //formElement: '.popup__form',
-  inputElement: '.popup__input',
+  inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button-save',
   inactiveButtonClass: 'popup__button-save_disabled',
   inputErrorClass: 'popup__input_type_error',
@@ -78,17 +78,17 @@ const openPopupAddContent = () => {
 //открытие popup
 export default function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', keyHanlker);
+  document.addEventListener('keydown', keyHandler);
 };
 
 //закрытие popup
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', keyHanlker);
+  document.removeEventListener('keydown', keyHandler);
 };
 
 //закрытие popup ecs
-const keyHanlker = (e) => {
+const keyHandler = (e) => {
   if (e.key === "Escape") {
     const openedPopup = document.querySelector('.popup_opened')
     closePopup(openedPopup)
