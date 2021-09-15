@@ -25,7 +25,7 @@ export default class Card {
     return this._content;
   }
 
-  _likeButton = () => {
+  _likeCard = () => {
     this._likeButton.classList.toggle('content__like_active');
   }
 
@@ -44,7 +44,7 @@ export default class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => {
-      this._likeButton();
+      this._likeCard();
     });
 
     this._content.querySelector('.content__remove').addEventListener('click', this._removeCard);
